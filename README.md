@@ -23,7 +23,9 @@ A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema m
 
 ## ▶️ Como Executar a API
 
--- Explicar Docker
+-- Explicar 
+
+---
 
 ## 📡 Endpoints Principais
 
@@ -62,7 +64,7 @@ http://localhost:5000/api/turmas/{id}
 
 ## 📦 Estrutura do Projeto
 
-
+```
 reserva-salas/
 │
 ├── api/                       
@@ -77,7 +79,9 @@ reserva-salas/
 ├── DockerFile           
 ├── README.md                  
 └── requirements.txt           
+```
 
+---
 
 ## 🛠️ Futuras Melhorias
 
