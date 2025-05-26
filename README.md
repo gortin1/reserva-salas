@@ -95,6 +95,7 @@ reserva-salas/
 ## 🧑‍💻 Autores
 
 - [Camila Ribeiro](https://github.com/camilasribeiro)
+- [Fernando Storel](https://github.com/Fernandostorel)
 - [Gabriel Nathan](https://github.com/gortin1)
 - [Nicolas Lima](https://github.com/nicolas-liima)
 
