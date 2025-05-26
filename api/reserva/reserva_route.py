@@ -1,7 +1,4 @@
 from flask import Blueprint, request, jsonify
-from datetime import datetime
-from api.reserva.reserva_model import Reserva
-from database import db
 import requests
 from api.reserva.reserva_model import ReservaNaoEncontrada, reserva_por_id, listar_reservas, adicionar_reserva, atualizar_reserva, excluir_reserva
 
