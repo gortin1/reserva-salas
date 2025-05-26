@@ -53,32 +53,68 @@ def reserva_por_id(id):
     return reserva.to_dict()
 
 def adicionar_reserva(novos_dados):
-    nova_reserva = Reserva(
-        turma_id = novos_dados['turma_id'],
-        sala = novos_dados['sala'],
-        data=datetime.strptime(novos_dados['data'], "%Y-%m-%d").date(),
-        hora_inicio=datetime.strptime(novos_dados['hora_inicio'], "%H:%M").time(),
-        hora_fim=datetime.strptime(novos_dados['hora_fim'], "%H:%M").time()
-    )
+    try:
+        turma_id = novos_dados['turma_id']
+        sala = novos_dados['sala']
+        data_str = novos_dados['data']
+        hora_inicio_str = novos_dados['hora_inicio']
+        hora_fim_str = novos_dados['hora_fim']
+    
+        data = datetime.strptime(data_str, "%Y-%m-%d").date()
+        hora_inicio = datetime.strptime(hora_inicio_str, "%H:%M").time()
+        hora_fim = datetime.strptime(hora_fim_str, "%H:%M").time()
 
-    db.session.add(nova_reserva)
-    db.session.commit()
-    return {'message': 'Reserva adicionada com sucesso.'}, 201
+        nova_reserva = Reserva(
+            turma_id = turma_id,
+            sala = sala,
+            data = data,
+            hora_inicio = hora_inicio,
+            hora_fim = hora_fim
+        )
+
+        db.session.add(nova_reserva)
+        db.session.commit()
+        return {'message': 'Reserva adicionada com sucesso.'}, 201
+    
+    except KeyError as e:
+        return {'erro': 'Campo obrigatório ausente.', 'detalhes': str(e)}, 400
+    except ValueError as e:
+        return {'erro': 'Formato de data ou hora inválido.', 'detalhes': str(e)}, 400
+    except Exception as e:
+        return {'erro': 'Erro interno no servidor.', 'detalhes': str(e)}, 500
 
 def atualizar_reserva(id, novos_dados):
-    reserva = Reserva.query.get(id)
-    if not reserva:
-        raise ReservaNaoEncontrada(f"Reserva não encontrada.")
+    try:
+        reserva = Reserva.query.get(id)
+        if not reserva:
+            raise ReservaNaoEncontrada(f"Reserva não encontrada.")
+        
+        turma_id = novos_dados['turma_id']
+        sala = novos_dados['sala']
+        data_str = novos_dados['data']
+        hora_inicio_str = novos_dados['hora_inicio']
+        hora_fim_str = novos_dados['hora_fim']
+
+        data = datetime.strptime(data_str, "%Y-%m-%d").date()
+        hora_inicio = datetime.strptime(hora_inicio_str, "%H:%M").time()
+        hora_fim = datetime.strptime(hora_fim_str, "%H:%M").time()
+        
+        reserva.turma_id = turma_id
+        reserva.sala = sala
+        reserva.data = data
+        reserva.hora_inicio = hora_inicio
+        reserva.hora_fim = hora_fim
+        
+        db.session.commit()
+        return {'message': 'Reserva atualizada com sucesso.'}, 200
     
-    reserva.turma_id = novos_dados['turma_id']
-    reserva.sala = novos_dados['sala']
-    reserva.data = datetime.strptime(novos_dados['data'], "%Y-%m-%d").date()
-    reserva.hora_inicio = datetime.strptime(novos_dados['hora_inicio'], "%H:%M").time()
-    reserva.hora_fim = datetime.strptime(novos_dados['hora_fim'], "%H:%M").time()
-    
-    db.session.commit()
-    return {'message': 'Reserva atualizada com sucesso.'}, 200
-    
+    except KeyError as e:
+        return {'erro': 'Campo obrigatório ausente.', 'detalhes': str(e)}, 400
+    except ValueError as e:
+        return {'erro': 'Formato de data ou hora inválido.', 'detalhes': str(e)}, 400
+    except Exception as e:
+        return {'erro': 'Erro interno no servidor.', 'detalhes': str(e)}, 500
+        
 def excluir_reserva(id):
     reserva = Reserva.query.get(id)
     if not reserva:
