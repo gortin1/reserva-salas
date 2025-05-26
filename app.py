@@ -1,5 +1,5 @@
 from flask import Flask
-from config import db
+from database import db
 from api.reserva.reserva_route import reservas_blueprint
 
 app = Flask(__name__)
