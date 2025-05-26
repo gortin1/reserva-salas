@@ -57,7 +57,6 @@ Endpoint de turmas:
 
 ```
 http://localhost:5000/api/turmas/{id}
-
 ```
 
 ---
