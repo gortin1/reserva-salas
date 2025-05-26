@@ -54,13 +54,15 @@ A API de Reserva de Salas é um **microsserviço** que faz parte de um sistema m
 Endpoint de turmas:
 
 ```
-http://localhost:5000/api/turmas/{id}```
+http://localhost:5000/api/turmas/{id}
+
+```
 
 ---
 
 ## 📦 Estrutura do Projeto
 
-```
+
 reserva-salas/
 │
 ├── api/                       
@@ -76,7 +78,6 @@ reserva-salas/
 ├── README.md                  
 └── requirements.txt           
 
-```
 
 ## 🛠️ Futuras Melhorias
 
