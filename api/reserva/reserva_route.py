@@ -5,7 +5,7 @@ from api.reserva.reserva_model import ReservaNaoEncontrada, reserva_por_id, list
 reservas_blueprint = Blueprint("reservas", __name__)
 
 def validar_turma(turma_id):
-    response = requests.get(f"http://localhost:5000/api/turmas/{turma_id}")
+    response = requests.get(f"http://api-gestao-escolar:5000/api/turmas/{turma_id}")
     return response.status_code == 200
 
 @reservas_blueprint.route('/reservas', methods = ['POST'])
