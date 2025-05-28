@@ -50,7 +50,7 @@ docker network create minha-network
 ### 2º Passo - Construa a imagem api-gestão-escolar da [api de gestão](https://github.com/gortin1/ProjetoApi.git) 
 
 ``` bash
-cd projetoAPI
+cd projetoApi
 docker build -t api-gestao-escolar .
 ``` 
 
