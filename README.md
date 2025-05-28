@@ -75,7 +75,7 @@ reserva-salas/
 │       └── test.py                     
 ├── app.py                     
 ├── database.py   
-├── DockerFile           
+├── Dockerfile           
 ├── README.md                  
 └── requirements.txt           
 ```
