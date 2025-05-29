@@ -29,10 +29,9 @@ Este guia mostra como executar duas APIs separadas (`reserva-salas` e `api-gesta
 
 ## 📥 Clonando os Repositórios
 
-Este projeto é composto por três APIs independentes que se comunicam via rede Docker. Para executar corretamente, você deve clonar todos os repositórios:
+Este projeto é composto por duas APIs independentes que se comunicam via rede Docker. Para executar corretamente, você deve clonar todos os repositórios:
 
 ```
-git clone https://github.com/seu-usuario/atividade-salas.git
 git clone https://github.com/seu-usuario/ProjetoApi.git
 git clone https://github.com/seu-usuario/reserva-salas.git
 ```
