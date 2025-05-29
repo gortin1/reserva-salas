@@ -35,7 +35,7 @@ Este guia mostra como executar duas APIs separadas (`reserva-salas` e `api-gesta
 >
 > ```
 > projeto/
-> ├── reserva-sala/
+> ├── reserva-salas/
 > └── ProjetoApi/
 > ```
 
@@ -50,7 +50,7 @@ docker network create minha-network
 ### 2º Passo - Construa a imagem api-gestão-escolar da [api de gestão](https://github.com/gortin1/ProjetoApi.git) 
 
 ``` bash
-cd projetoApi
+cd ProjetoApi
 docker build -t api-gestao-escolar .
 ``` 
 
@@ -64,7 +64,7 @@ cd ..
 ### 4º Passo - Construa a imagem atividade-salas da [api de reserva](https://github.com/gortin1/reserva-salas.git)
 
 ``` bash
-cd atividade-salas
+cd reserva-salas
 docker build -t atividade-salas reserva-salas
 ```
 
