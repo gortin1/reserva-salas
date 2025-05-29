@@ -88,6 +88,9 @@ cd ..
 ```
 
 #### Pronto! Você já pode utilizar a api tranquilamente!
+
+⚠️ **Aviso:** A API de Reservas estará acessível em: **http://localhost:5002/reservas**.
+
 ## 📡 Endpoints Principais
 
 - `GET /reservas` – Lista todas as reservas
